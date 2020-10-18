@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Salud.Views.SingInPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="Center">
+            <Button VerticalOptions="Center" Text="Registrar" Command="{Binding SingInCommand}"/>
+            <Button VerticalOptions="Center" Text="Cancelar" Command="{Binding CancelCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
