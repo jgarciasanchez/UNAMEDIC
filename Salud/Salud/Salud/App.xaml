@@ -12,6 +12,13 @@
             <infra:InstanceLocator x:Key="Locator"/>
             
             <Color x:Key="Primary">#2196F3</Color>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Gray"></Setter>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+                <Setter Property="TextColor" Value="Gray"></Setter>
+            </Style>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

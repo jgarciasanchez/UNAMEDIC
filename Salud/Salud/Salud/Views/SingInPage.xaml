@@ -5,7 +5,24 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
+
         <StackLayout BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="Center">
+            <Entry PlaceholderColor="Gray" Placeholder="Nombre" />
+            <Entry Placeholder="Apellidos" />
+            <Entry Placeholder="Usuario" />
+            <Entry Placeholder="Contraseña" IsPassword="True"/>
+            <Entry Placeholder="Correo Electrónico" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Peso"></Label>
+                <Entry HorizontalOptions="FillAndExpand"></Entry>
+                <Label Text="Altura"></Label>
+                <Entry HorizontalOptions="FillAndExpand"></Entry>
+                <Label Text="Edad"></Label>
+                <Entry HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+            <Entry Placeholder="Usuario" />
+            <Entry Placeholder="Usuario" />
+            <Entry Placeholder="Usuario" />
             <Button VerticalOptions="Center" Text="Registrar" Command="{Binding SingInCommand}"/>
             <Button VerticalOptions="Center" Text="Cancelar" Command="{Binding CancelCommand}"/>
         </StackLayout>
