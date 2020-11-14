@@ -15,6 +15,8 @@ namespace Salud.ViewModels
         private string _edtxUsuario;
         private string _edtxClave;
 
+        public ImageSource _ImageUrl;
+
         //Controller
 
         #endregion
@@ -30,12 +32,28 @@ namespace Salud.ViewModels
             get { return this._edtxClave; }
             set { this.SetValue(ref this._edtxClave, value); } // no solo asigna, también refresca la vista...
         }
+        public ImageSource ImageUrl
+        {
+            get
+            {
+                if (this._ImageUrl == null)
+                {
+                    return ImageSource.FromFile("xamarin_logo.png");
+                }
+                else
+                {
+                    return this._ImageUrl;
+                }
+            }
+            set { this.SetValue(ref this._ImageUrl, value); } // no solo asigna, también refresca la vista...
+        }
 
         #endregion
 
         #region  Constructors
         public LoginViewModel()
         {
+
         }
         #endregion
 
@@ -65,8 +83,11 @@ namespace Salud.ViewModels
         }
         public async void OnSingInClicked()
         {
-            MainViewModel.GetInstance().SingIn = new SingInViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new SingInPage());
+
+
+
+            //MainViewModel.GetInstance().SingIn = new SingInViewModel();
+            //await Application.Current.MainPage.Navigation.PushAsync(new SingInPage());
         }
         #endregion
     }

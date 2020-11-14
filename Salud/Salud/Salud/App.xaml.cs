@@ -14,8 +14,13 @@ namespace Salud
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new NavigationPage(new LoginPage());
-
+            MainPage = new AppShell();
+            //MainPage = new NavigationPage(new LoginPage());
+            ToLogin();
+        }
+        public async void ToLogin()
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
         }
 
         protected override void OnStart()
