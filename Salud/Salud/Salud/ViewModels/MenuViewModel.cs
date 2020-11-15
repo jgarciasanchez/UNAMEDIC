@@ -89,6 +89,7 @@ namespace Salud.ViewModels
         }
         public async void OnHipertension()
         {
+            MainViewModel.GetInstance().Hipertension = new HipertensionViewModel();
             await Shell.Current.GoToAsync(nameof(HipertensionTabbedPage));
         }
         public async void OnDiabetes()

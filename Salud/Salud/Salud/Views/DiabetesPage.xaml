@@ -1,12 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Salud.Views.DiabetesPage">
+             x:Class="Salud.Views.DiabetesPage"
+             Title="Nuevo">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="Azure">
+            <Grid RowDefinitions="auto" ColumnSpacing="20" Margin="20">
+                <Label FontAttributes="Bold" FontSize="Default" Text="Fecha" />
+                <Label FontAttributes="Bold" FontSize="Default" Grid.Column="1" Text="Hora" />
+                <DatePicker Grid.Row="1" TextColor="Green" BackgroundColor="White"/>
+                <TimePicker Grid.Column="1" Grid.Row="1" TextColor="Green" BackgroundColor="White"/>
+            </Grid>
+            <Entry  BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Glucosa" Margin="20"/>
+            <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Peso" Margin="20"/>
+            <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Nota" Keyboard="Chat" VerticalOptions="Start" HeightRequest="200" VerticalTextAlignment="Start" Margin="20" PlaceholderColor="Gray" />
+
+            <Grid ColumnSpacing="20" Margin="20">
+                <Button Text="Borrar" BackgroundColor="White" TextColor="Black"/>
+                <Button Text="Guardar" BackgroundColor="White" TextColor="Black" Grid.Column="1"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+    
