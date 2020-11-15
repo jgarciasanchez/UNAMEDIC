@@ -33,7 +33,7 @@
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
-                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding OnDiabetes}"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding OnDiabetesClicked}"/>
 
                         <BoxView Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
                         <BoxView Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
@@ -44,7 +44,7 @@
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
-                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Command="{Binding OnHipertension}"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Command="{Binding OnHipertensionClicked}"/>
 
                         <BoxView Grid.Row="1" Color="LightBlue" CornerRadius="10"  Margin="5"/>
                         <BoxView Grid.Row="1" Color="Azure" CornerRadius="10"  Margin="8"/>
@@ -55,7 +55,7 @@
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
-                        <Button Grid.Row="1" Grid.Column="0" Opacity="0" Command="{Binding OnSangre}"/>
+                        <Button Grid.Row="1" Grid.Column="0" Opacity="0" Command="{Binding OnSangreClicked}"/>
 
                         <BoxView Grid.Row="1" Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
                         <BoxView Grid.Row="1" Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
@@ -67,7 +67,7 @@
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
-                        <Button Grid.Row="1" Grid.Column="1" Opacity="0" Command="{Binding OnAgua}"/>
+                        <Button Grid.Row="1" Grid.Column="1" Opacity="0" Command="{Binding OnAguaClicked}"/>
 
                     </Grid>
                 </StackLayout>
