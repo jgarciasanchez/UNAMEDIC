@@ -5,9 +5,9 @@
              Title="Nuevo">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <Picker Title="Pulso" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
