@@ -36,6 +36,9 @@ public class Pacientes
     [Column("edad")]
     public int edad { get; set; }
 
+    [Column("fechaNacimiento")]
+    public string fechaNacimiento { get; set; }
+
     [Column("hidratacion")]
     public bool hidratacion { get; set; }
 

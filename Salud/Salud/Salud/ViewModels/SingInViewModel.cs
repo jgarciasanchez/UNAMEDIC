@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Salud.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,9 +12,19 @@ namespace Salud.ViewModels
     {
         #region Attributes //Aquí van los propieades que serán modificadas en el controlador 
         //Atributos de LoginPage
-        private string _edtxUsuario;
-        private string _edtxClave;
         private string _txtNombre;
+        private string _txtApellidos;
+        private string _txtUsuario;
+        private string _txtClave;
+        private string _txtEmail;
+        private string _txtPeso;
+        private string _txtAltura;
+        private int _txtEdad;
+        private string _dtpFechaNacimiento;
+        private bool _swtHipertension;
+        private bool _swtSangre;
+        private bool _swtDiabetes;
+        private bool _swtHidratacion;
 
         //Controller
 
@@ -25,16 +36,67 @@ namespace Salud.ViewModels
             get { return this._txtNombre; }
             set { this.SetValue(ref this._txtNombre, value); } // no solo asigna, también refresca la vista...
         }
-        public string edtxUsuario
+        public string txtApellidos
         {
-            get { return this._edtxUsuario; }
-            set { this.SetValue(ref this._edtxUsuario, value); } // no solo asigna, también refresca la vista...
+            get { return this._txtApellidos; }
+            set { this.SetValue(ref this._txtApellidos, value); } // no solo asigna, también refresca la vista...
         }
-        public string edtxClave
+        public string txtUsuario
         {
-            get { return this._edtxClave; }
-            set { this.SetValue(ref this._edtxClave, value); } // no solo asigna, también refresca la vista...
+            get { return this._txtUsuario; }
+            set { this.SetValue(ref this._txtUsuario, value); } // no solo asigna, también refresca la vista...
         }
+        public string txtClave
+        {
+            get { return this._txtClave; }
+            set { this.SetValue(ref this._txtClave, value); } // no solo asigna, también refresca la vista...
+        }
+        public string txtEmail
+        {
+            get { return this._txtEmail; }
+            set { this.SetValue(ref this._txtEmail, value); } // no solo asigna, también refresca la vista...
+        }
+        public string txtPeso
+        {
+            get { return this._txtPeso; }
+            set { this.SetValue(ref this._txtPeso, value); } // no solo asigna, también refresca la vista...
+        }
+        public string txtAltura
+        {
+            get { return this._txtAltura; }
+            set { this.SetValue(ref this._txtAltura, value); } // no solo asigna, también refresca la vista...
+        }
+        public string dtpFechaNacimiento
+        {
+            get { return this._dtpFechaNacimiento; }
+            set { this.SetValue(ref this._dtpFechaNacimiento, value); } // no solo asigna, también refresca la vista...
+        }
+        public int txtEdad
+        {
+            get { return this._txtEdad; }
+            set { this.SetValue(ref this._txtEdad, value); } // no solo asigna, también refresca la vista...
+        }
+        public bool swtHipertension
+        {
+            get { return this._swtHipertension; }
+            set { this.SetValue(ref this._swtHipertension, value); } // no solo asigna, también refresca la vista...
+        }
+        public bool swtSangre
+        {
+            get { return this._swtSangre; }
+            set { this.SetValue(ref this._swtSangre, value); } // no solo asigna, también refresca la vista...
+        }
+        public bool swtDiabetes
+        {
+            get { return this._swtDiabetes; }
+            set { this.SetValue(ref this._swtDiabetes, value); } // no solo asigna, también refresca la vista...
+        }
+        public bool swtHidratacion
+        {
+            get { return this._swtHidratacion; }
+            set { this.SetValue(ref this._swtHidratacion, value); } // no solo asigna, también refresca la vista...
+        }
+
 
         #endregion
 
@@ -69,8 +131,22 @@ namespace Salud.ViewModels
         }
         public void OnSingInClicked()
         {
+            Pacientes pac = new Pacientes();
+            pac.nombre = _txtNombre;
+            pac.apellidos = _txtApellidos;
+            pac.usuario = _txtUsuario;
+            pac.clave = _txtClave;
+            pac.email = _txtEmail;
+            pac.peso = _txtPeso;
+            pac.altura = _txtAltura;
+            pac.edad = _txtEdad;
+            pac.fechaNacimiento = _dtpFechaNacimiento;
+            pac.hipertension = swtHipertension;
+            pac.sangre = swtSangre;
+            pac.diabetes = _swtDiabetes;
+            pac.hidratacion = _swtHidratacion;
 
-
+            
            // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
         }
         #endregion
