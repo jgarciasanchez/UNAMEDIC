@@ -69,8 +69,9 @@
     </Shell.Resources>
     
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="About" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="Menú" Icon="tab_about.png" Route="MenuPage" ContentTemplate="{DataTemplate local:MenuPage}" />
+        <!--<ShellContent Title="About" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
     </FlyoutItem>
 
     <MenuItem BindingContext="{Binding AppShell}" Text="Logout" StyleClass="MenuItemLayoutStyle" Command="{Binding OnMenuItemClicked}">

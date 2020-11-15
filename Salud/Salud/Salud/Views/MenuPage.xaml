@@ -4,8 +4,70 @@
              x:Class="Salud.Views.MenuPage">
     
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Login}" Padding="10,0,10,0" VerticalOptions="Center">
+        <!--<StackLayout BindingContext="{Binding Login}" Padding="10,0,10,0" VerticalOptions="Center">
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+        </StackLayout>-->
+        <StackLayout  BindingContext="{Binding Menu}" BackgroundColor="Azure">
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand"
+                    Padding="5"
+                    Spacing="5">
+
+                    <Image Source="tab_about" HeightRequest="150" VerticalOptions="CenterAndExpand"/>
+                    <Grid Margin="10" Padding="0" VerticalOptions="EndAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150" />
+                            <RowDefinition Height="150" />
+                        </Grid.RowDefinitions>
+                        <!--<Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding evt_physicalInventory}"/>-->
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding evt_customerSync}"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Command="{Binding evt_stockSycn}"/>
+                        <Button Grid.Row="1" Grid.Column="0" Opacity="0" Command="{Binding evt_cotiza}"/>
+                        <Button Grid.Row="1" Grid.Column="1" Opacity="0" Command="{Binding evt_checkPrices}"/>
+
+                        <BoxView Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
+                        <BoxView Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
+                        <Label Grid.Column="1"
+                            Text="Hipertensión"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="Azure"
+                            TextColor="Black"
+                            FontSize="Default"/>
+
+                        <BoxView Grid.Row="1" Color="LightBlue" CornerRadius="10"  Margin="5"/>
+                        <BoxView Grid.Row="1" Color="Azure" CornerRadius="10"  Margin="8"/>
+                        <Label Grid.Row="1"
+                            Text="Diabetes"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="Azure"
+                            TextColor="Black"
+                            FontSize="Default"/>
+
+                        <BoxView Grid.Row="1" Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
+                        <BoxView Grid.Row="1" Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
+                        <Label Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Control de hidratación"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="Azure"
+                            TextColor="Black"
+                            FontSize="Default"/>
+
+                        <BoxView Grid.Row="0" Color="LightBlue" CornerRadius="10" Margin="5"/>
+                        <BoxView Grid.Row="0" Color="Azure" CornerRadius="10" Margin="8"/>
+                        <Label Grid.Row="0"
+                            Text="Control de donación"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="Azure"
+                            TextColor="Black"
+                            FontSize="Default"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
