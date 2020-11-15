@@ -83,11 +83,8 @@ namespace Salud.ViewModels
         }
         public async void OnSingInClicked()
         {
-
-
-
-            //MainViewModel.GetInstance().SingIn = new SingInViewModel();
-            //await Application.Current.MainPage.Navigation.PushAsync(new SingInPage());
+            MainViewModel.GetInstance().SingIn = new SingInViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new SingInPage());
         }
         #endregion
     }

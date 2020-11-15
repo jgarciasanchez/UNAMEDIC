@@ -1,13 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Salud.Views.SingInPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Registrar" Command="{Binding SingInCommand}"/>
-            <Button VerticalOptions="Center" Text="Cancelar" Command="{Binding CancelCommand}"/>
+            <Image Source="UNAMEDIC"></Image>
+            <Entry PlaceholderColor="Gray" Placeholder="Nombre" Text="{ Binding txtNombre }"/>
+            <Entry Placeholder="Apellidos" />
+            <Entry Placeholder="Usuario" />
+            <Entry Placeholder="Contraseña" IsPassword="True"/>
+            <Entry Placeholder="Correo Electrónico" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Peso"></Label>
+                <Entry HorizontalOptions="FillAndExpand"></Entry>
+                <Label Text="Altura"></Label>
+                <Entry HorizontalOptions="FillAndExpand"></Entry>
+                <Label Text="Edad"></Label>
+                <Entry HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+            <Label Text="Fecha de Nacimiento"></Label>
+            <DatePicker x:Name="datePicker" Date="{x:Static system:DateTime.Today}"></DatePicker>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Hipertensión"></Label>
+                <Switch></Switch>
+                <Label Text="Control de sangre"></Label>
+                <Switch></Switch>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Diabetes"></Label>
+                <Switch></Switch>
+                <Label Text="Control de Hidratación"></Label>
+                <Switch></Switch>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Button VerticalOptions="Center" Text="Registrar" Command="{Binding SingInCommand}"/>
+                <Button VerticalOptions="Center" Text="Cancelar" Command="{Binding CancelCommand}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

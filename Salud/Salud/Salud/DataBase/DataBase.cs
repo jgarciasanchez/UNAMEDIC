@@ -17,6 +17,7 @@ namespace Salud.DataBase
                 {
                     var temp = System.IO.Path.Combine(folder, database);
                     connection.CreateTable<Item>();
+                    connection.CreateTable<Pacientes>();
                     return true;
                 }
             }
@@ -33,6 +34,8 @@ namespace Salud.DataBase
                 {
                     connection.DropTable<Item>();
                     connection.CreateTable<Item>();
+                    connection.DropTable<Pacientes>();
+                    connection.CreateTable<Pacientes>();
                     return true;
                 }
             }

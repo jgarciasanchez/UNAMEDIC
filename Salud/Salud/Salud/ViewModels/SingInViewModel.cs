@@ -13,12 +13,18 @@ namespace Salud.ViewModels
         //Atributos de LoginPage
         private string _edtxUsuario;
         private string _edtxClave;
+        private string _txtNombre;
 
         //Controller
 
         #endregion
 
         #region Properties //Aquí van los elementos desde la vista bindeados
+        public string txtNombre
+        {
+            get { return this._txtNombre; }
+            set { this.SetValue(ref this._txtNombre, value); } // no solo asigna, también refresca la vista...
+        }
         public string edtxUsuario
         {
             get { return this._edtxUsuario; }
@@ -63,6 +69,8 @@ namespace Salud.ViewModels
         }
         public void OnSingInClicked()
         {
+
+
            // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
         }
         #endregion
