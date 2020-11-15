@@ -48,9 +48,53 @@ namespace Salud.ViewModels
                 return new RelayCommand(OnMenuItemConfiguraciones);
             }
         }
+        public ICommand OnDiabetesClicked
+        {
+            get
+            {
+                return new RelayCommand(OnDiabetes);
+            }
+        }
+        public ICommand OnHipertensionClicked
+        {
+            get
+            {
+                return new RelayCommand(OnHipertension);
+            }
+        }
+        public ICommand OnAguaClicked
+        {
+            get
+            {
+                return new RelayCommand(OnAgua);
+            }
+        }
+        public ICommand OnSangreClicked
+        {
+            get
+            {
+                return new RelayCommand(OnSangre);
+            }
+        }
         #endregion
 
         #region Methods
+        public async void OnSangre()
+        {
+            await Shell.Current.GoToAsync(nameof(DiabetesTabbedPage));
+        }
+        public async void OnAgua()
+        {
+            await Shell.Current.GoToAsync(nameof(DiabetesTabbedPage));
+        }
+        public async void OnHipertension()
+        {
+            await Shell.Current.GoToAsync(nameof(HipertensionTabbedPage));
+        }
+        public async void OnDiabetes()
+        {
+            await Shell.Current.GoToAsync(nameof(DiabetesTabbedPage));
+        }
         public async void OnMenuItemConfiguraciones()
         {
             // Application.Current.MainPage = new AppShell();

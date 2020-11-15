@@ -24,8 +24,16 @@
                             <RowDefinition Height="150" />
                         </Grid.RowDefinitions>
 
-
-                        <!--<Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding evt_physicalInventory}"/>-->
+                        <BoxView Grid.Row="0" Color="LightBlue" CornerRadius="10" Margin="5"/>
+                        <BoxView Grid.Row="0" Color="Azure" CornerRadius="10" Margin="8"/>
+                        <Label Grid.Row="0"
+                            Text="Diabetes"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="Azure"
+                            TextColor="Black"
+                            FontSize="Default"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding OnDiabetes}"/>
 
                         <BoxView Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
                         <BoxView Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
@@ -36,16 +44,18 @@
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Command="{Binding OnHipertension}"/>
 
                         <BoxView Grid.Row="1" Color="LightBlue" CornerRadius="10"  Margin="5"/>
                         <BoxView Grid.Row="1" Color="Azure" CornerRadius="10"  Margin="8"/>
                         <Label Grid.Row="1"
-                            Text="Diabetes"
+                            Text="Control de donación"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
+                        <Button Grid.Row="1" Grid.Column="0" Opacity="0" Command="{Binding OnSangre}"/>
 
                         <BoxView Grid.Row="1" Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
                         <BoxView Grid.Row="1" Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
@@ -57,22 +67,8 @@
                             BackgroundColor="Azure"
                             TextColor="Black"
                             FontSize="Default"/>
+                        <Button Grid.Row="1" Grid.Column="1" Opacity="0" Command="{Binding OnAgua}"/>
 
-                        <BoxView Grid.Row="0" Color="LightBlue" CornerRadius="10" Margin="5"/>
-                        <BoxView Grid.Row="0" Color="Azure" CornerRadius="10" Margin="8"/>
-                        <Label Grid.Row="0"
-                            Text="Control de donación"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="Azure"
-                            TextColor="Black"
-                            FontSize="Default"/>
-
-
-                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding OnMenuItemConfiguracionesClicked}"/>
-                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Command="{Binding OnMenuItemConfiguracionesClicked}"/>
-                        <Button Grid.Row="1" Grid.Column="0" Opacity="0" Command="{Binding OnMenuItemConfiguracionesClicked}"/>
-                        <Button Grid.Row="1" Grid.Column="1" Opacity="0" Command="{Binding OnMenuItemConfiguracionesClicked}"/>
                     </Grid>
                 </StackLayout>
             </ScrollView>
