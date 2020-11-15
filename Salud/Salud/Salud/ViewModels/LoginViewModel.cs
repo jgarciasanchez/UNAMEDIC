@@ -77,6 +77,7 @@ namespace Salud.ViewModels
         #region Methods
         public void OnLoginClicked()
         {
+            MainViewModel.GetInstance().Menu = new MenuViewModel();
               Application.Current.MainPage = new AppShell();
            // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
             //await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
