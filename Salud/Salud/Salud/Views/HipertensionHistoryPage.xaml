@@ -4,10 +4,34 @@
              x:Class="Salud.Views.HipertensionHistoryPage"
              Title="Historial">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{Binding Hipertension}">
+            <ListView
+                HasUnevenRows="True"
+                SeparatorVisibility="None"
+                IsPullToRefreshEnabled="False" 
+                ItemsSource ="{Binding hipertension}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Frame CornerRadius="10" Margin="3" >
+                                <Grid Margin="-15" Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Glucosa}"/>
+                                    <Label Grid.Column="1" Text="{Binding Peso}"/>
+                                    <Label Grid.Column="2" Text="{Binding Nota}"/>
+                                    <Label Grid.Row="1"  Grid.Column="2" Text="{Binding Hora}"/>
+                                    <Label Grid.Row="1" Text="{Binding Fecha}"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

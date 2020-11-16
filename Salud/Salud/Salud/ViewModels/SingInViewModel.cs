@@ -19,7 +19,7 @@ namespace Salud.ViewModels
         private string _txtEmail;
         private string _txtPeso;
         private string _txtAltura;
-        private int _txtEdad;
+     //   private string _txtEdad;
         private string _dtpFechaNacimiento;
         private bool _swtHipertension;
         private bool _swtSangre;
@@ -71,11 +71,11 @@ namespace Salud.ViewModels
             get { return this._dtpFechaNacimiento; }
             set { this.SetValue(ref this._dtpFechaNacimiento, value); } // no solo asigna, también refresca la vista...
         }
-        public int txtEdad
-        {
-            get { return this._txtEdad; }
-            set { this.SetValue(ref this._txtEdad, value); } // no solo asigna, también refresca la vista...
-        }
+        //public string txtEdad
+        //{
+        //    get { return this._txtEdad; }
+        //    set { this.SetValue(ref this._txtEdad, value); } // no solo asigna, también refresca la vista...
+        //}
         public bool swtHipertension
         {
             get { return this._swtHipertension; }
@@ -129,25 +129,38 @@ namespace Salud.ViewModels
         {
             await Application.Current.MainPage.Navigation.PopAsync();
         }
-        public void OnSingInClicked()
+        public async void OnSingInClicked()
         {
             Pacientes pac = new Pacientes();
-            pac.nombre = _txtNombre;
-            pac.apellidos = _txtApellidos;
-            pac.usuario = _txtUsuario;
-            pac.clave = _txtClave;
-            pac.email = _txtEmail;
-            pac.peso = _txtPeso;
-            pac.altura = _txtAltura;
-            pac.edad = _txtEdad;
-            pac.fechaNacimiento = _dtpFechaNacimiento;
-            pac.hipertension = swtHipertension;
-            pac.sangre = swtSangre;
-            pac.diabetes = _swtDiabetes;
-            pac.hidratacion = _swtHidratacion;
+            pac.nombre = txtNombre;
+            pac.apellidos = txtApellidos;
+            pac.usuario = txtUsuario;
+            pac.clave = txtClave;
+            pac.email = txtEmail;
+            pac.peso = txtPeso;
+            pac.altura = txtAltura;
+            pac.fechaNacimiento = dtpFechaNacimiento;
 
-            
-           // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
+            List<String> isAnyEmpty = new List<string>();
+            if (String.IsNullOrEmpty(txtAltura)|| String.IsNullOrEmpty(txtNombre) || String.IsNullOrEmpty(txtApellidos) || String.IsNullOrEmpty(txtUsuario)
+                || String.IsNullOrEmpty(txtClave) || String.IsNullOrEmpty(txtEmail) || String.IsNullOrEmpty(txtPeso) || String.IsNullOrEmpty(dtpFechaNacimiento))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Debes llenar todos los campos", "Aceptar");
+                return;
+            }
+            if(StaticResources.dataBase.getPacienteByUsuario(txtUsuario)!=null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Nombre de usuario ocupado", "Aceptar");
+                return;
+            }
+            bool isSave = StaticResources.dataBase.savePacientes(pac);
+
+            StaticResources.usuario = StaticResources.dataBase.getPacienteByUsuarioClave(txtUsuario, txtClave);
+
+            MainViewModel.GetInstance().Menu = new MenuViewModel();
+            Application.Current.MainPage = new AppShell();
+
+            // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
         }
         #endregion
     }

@@ -1,5 +1,6 @@
 ﻿using Salud.Models;
 using SQLite;
+using System;
 using System.Collections.Generic;
 
 namespace Salud.DataBases
@@ -19,6 +20,7 @@ namespace Salud.DataBases
                     connection.CreateTable<Item>();
                     connection.CreateTable<Pacientes>();
                     connection.CreateTable<Diabetes>();
+                    connection.CreateTable<Hipertension>();
                     return true;
                 }
             }
@@ -39,6 +41,8 @@ namespace Salud.DataBases
                     connection.CreateTable<Pacientes>();
                     connection.DropTable<Diabetes>();
                     connection.CreateTable<Diabetes>();
+                    connection.DropTable<Hipertension>();
+                    connection.CreateTable<Hipertension>();
                     return true;
                 }
             }
@@ -125,16 +129,30 @@ namespace Salud.DataBases
                 return false;
             }
         }
-        public Item getPacienteByUsuarioClave(string usuario, string clave)
+        public Pacientes getPacienteByUsuarioClave(string usuario, string clave)
         {
             try
             {
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
                 {
-                    return connection.Query<Item>("SELECT * FROM Pacientes Where usuario=? and clave = ?", usuario, clave)[0];
+                    return connection.Query<Pacientes>("SELECT * FROM Pacientes Where usuario=? and clave = ?", usuario, clave)[0];
                 }
             }
-            catch (SQLiteException ex)
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public Pacientes getPacienteByUsuario(string usuario)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Query<Pacientes>("SELECT * FROM Pacientes Where usuario=?", usuario)[0];
+                }
+            }
+            catch (Exception ex)
             {
                 return null;
             }
@@ -216,13 +234,13 @@ namespace Salud.DataBases
                 return false;
             }
         }
-        public List<Diabetes> getDiabetes()
+        public List<Diabetes> getDiabetes(int PacienteID)
         {
             try
             {
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
                 {
-                    return connection.Table<Diabetes>().ToList();
+                    return connection.Table<Diabetes>().Where(d=>d.PacienteID == PacienteID).ToList();
                 }
             }
             catch (SQLiteException ex)
@@ -238,6 +256,83 @@ namespace Salud.DataBases
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
                 {
                     return connection.Query<Diabetes>("SELECT * FROM Diabetes Where ID=?", Id)[0];
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Tabla Hipertension
+        public bool saveHipertension(Hipertension hipertension)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Insert(hipertension);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+        public bool deleteHipertension(Hipertension hipertension)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Delete(hipertension);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+        public bool updateHipertension(Hipertension hipertension)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Update(hipertension);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+        public List<Hipertension> getHipertension(int PacienteID)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Table<Hipertension>().Where(d => d.PacienteID == PacienteID).ToList();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                //Log.Info("SQLiteEx", ex.Message);
+                return null;
+            }
+        }
+        public Hipertension getHipertensionByID(int Id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Query<Hipertension>("SELECT * FROM Hipertension Where ID=?", Id)[0];
                 }
             }
             catch (SQLiteException ex)

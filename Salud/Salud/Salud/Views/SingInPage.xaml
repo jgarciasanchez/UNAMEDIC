@@ -9,21 +9,23 @@
         <StackLayout BackgroundColor="Azure" BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="FillAndExpand">
             <Image Source="UNAMEDIC_LOGO" Margin="20,50,20,0" WidthRequest="200"></Image>
             <Entry PlaceholderColor="Gray" Placeholder="Nombre" Margin="0,20,0,0" Text="{ Binding txtNombre }"/>
-            <Entry Placeholder="Apellidos"  Text="{ Binding txtNombre }"/>
-            <Entry Placeholder="Usuario"  Text="{ Binding txtNombre }"/>
-            <Entry Placeholder="Contraseña" IsPassword="True" Text="{ Binding txtNombre }"/>
-            <Entry Placeholder="Correo Electrónico"  Text="{ Binding txtNombre }"/>
+            <Entry Placeholder="Apellidos"  Text="{ Binding txtApellidos }"/>
+            <Entry Placeholder="Usuario"  Text="{ Binding txtUsuario }"/>
+            <Entry Placeholder="Contraseña" IsPassword="True" Text="{ Binding txtClave }"/>
+            <Entry Placeholder="Correo Electrónico"  Text="{ Binding txtEmail }"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Peso"></Label>
-                <Entry HorizontalOptions="FillAndExpand" Text="{ Binding txtNombre }"></Entry>
-                <Label Text="Altura"></Label>
-                <Entry HorizontalOptions="FillAndExpand" Text="{ Binding txtNombre }"></Entry>
-                <Label Text="Edad"></Label>
-                <Entry HorizontalOptions="FillAndExpand" Text="{ Binding txtNombre }"></Entry>
+                <Label Text="Peso en Kilogramos"></Label>
+                <Entry HorizontalOptions="FillAndExpand" Keyboard="Numeric" Text="{ Binding txtPeso }"></Entry>
+                <Label Text="Altura en metros"></Label>
+                <Entry HorizontalOptions="FillAndExpand" Keyboard="Numeric"  Text="{ Binding txtAltura }"></Entry>
+                <!--<Label Text="Edad"></Label>
+                <Entry HorizontalOptions="FillAndExpand" Text="{ Binding txtNombre }"></Entry>-->
             </StackLayout>
-            <Label Text="Fecha de Nacimiento"></Label>
-            <DatePicker x:Name="datePicker" Date="{x:Static system:DateTime.Today}"></DatePicker>
             <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha de Nacimiento" HorizontalOptions="StartAndExpand"></Label>
+                <DatePicker HorizontalOptions="End" TextColor="Black" Date="{Binding dtpFechaNacimiento}"></DatePicker>
+            </StackLayout>
+            <!--<StackLayout Orientation="Horizontal">
                 <Label Text="Hipertensión"></Label>
                 <Switch IsToggled="{ Binding swtHipertension }"></Switch>
                 <Label Text="Control de sangre"></Label>
@@ -34,7 +36,7 @@
                 <Switch IsToggled="{ Binding swtDiabetes }"></Switch>
                 <Label Text="Control de Hidratación"></Label>
                 <Switch IsToggled="{ Binding swtHidratacion }"></Switch>
-            </StackLayout>
+            </StackLayout>-->
             <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="End">
                 <Button Margin="0,20,0,0" Text="Cancelar" Command="{Binding CancelCommand}"/>
                 <Button Margin="0,20,0,0" Text="Registrar" Command="{Binding SingInCommand}"/>

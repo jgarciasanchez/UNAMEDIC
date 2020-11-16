@@ -57,6 +57,17 @@ namespace Salud.ViewModels
         {
             StaticResources.dataBase = new DataBase();
             StaticResources.dataBase.instanceDB();
+
+            if(StaticResources.dataBase.getPacienteByUsuarioClave("1", "1") == null)
+            {
+                Pacientes pacientes = new Pacientes()
+                {
+                    usuario = "1",
+                    clave = "1",
+                    nombre = "UsuarioDefault"
+                };
+                bool isSave = StaticResources.dataBase.savePacientes(pacientes);
+            }
         }
         #endregion
 
@@ -78,10 +89,22 @@ namespace Salud.ViewModels
         #endregion
 
         #region Methods
+        public async void mensajeError(String texto)
+        {
+            await Application.Current.MainPage.DisplayAlert("Error",texto, "Aceptar");
+        }
         public void OnLoginClicked()
         {
-            MainViewModel.GetInstance().Menu = new MenuViewModel();
-              Application.Current.MainPage = new AppShell();
+            //   if( )
+
+            if (StaticResources.dataBase.getPacienteByUsuarioClave(this.edtxUsuario, this.edtxClave) != null)
+            {
+                StaticResources.usuario = StaticResources.dataBase.getPacienteByUsuarioClave(this.edtxUsuario, this.edtxClave);
+                MainViewModel.GetInstance().Menu = new MenuViewModel();
+                Application.Current.MainPage = new AppShell();
+            }
+            else
+                mensajeError("Datos incorrectos");
            // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
             //await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }

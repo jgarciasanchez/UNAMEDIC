@@ -4,7 +4,6 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Salud.Views.HipertensionPage"
-             xmlns:progressBar="clr-namespace:ProgressBar"
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Nuevo">
     <ContentPage.Content>
@@ -13,7 +12,7 @@
                 <StackLayout Orientation="Horizontal">
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                         <Label Text="Fecha"/>
-                        <DatePicker HorizontalOptions="FillAndExpand" TextColor="Gray" Date="{x:Static system:DateTime.Today}"></DatePicker>
+                        <DatePicker HorizontalOptions="FillAndExpand" TextColor="Gray" Date="{Binding Fecha}"></DatePicker>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                         <Label Text="Hora"/>
@@ -603,9 +602,12 @@ bpm
                         </Picker>
                     </StackLayout>
                 </StackLayout>
-                <Label Text="Nota" FontSize="Large" Margin="0,20,0,0"/>
+                <Label Text="{Binding Nota}" FontSize="Large" Margin="0,20,0,0"/>
                 <Entry Keyboard="Chat" VerticalTextAlignment="Start" VerticalOptions="Start" HeightRequest="200" BackgroundColor="#F5EBA9" TextColor="Gray"/>
-                <Button Text="Añadir" Margin="0,20,0,0" CornerRadius="10"/>
+                <Grid ColumnSpacing="20" Margin="20">
+                    <Button Text="Borrar" Command="{Binding BorrarCommand}" BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+                    <Button Text="Guardar" Command="{Binding GuardarCommand}" BackgroundColor="Green" TextColor="White" Grid.Column="1" CornerRadius="10"/>
+                </Grid>
                 <Image Source="table"/>
             </StackLayout>
         </ScrollView>

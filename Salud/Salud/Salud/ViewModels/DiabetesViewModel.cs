@@ -156,7 +156,7 @@ namespace Salud.ViewModels
             try
             {
               //  this.IsRefreshing = true; // Se empieza a refrescar
-                this.DiabetesList = StaticResources.dataBase.getDiabetes();
+                this.DiabetesList = StaticResources.dataBase.getDiabetes(StaticResources.usuario.id);
                 this.RefreshList();
               //  this.IsRefreshing = false;
                 return;
@@ -184,6 +184,7 @@ namespace Salud.ViewModels
             diabetes.Hora = this.Hora.ToString();
             diabetes.Peso = this.Peso;
             diabetes.Nota = this.Nota;
+            diabetes.PacienteID = StaticResources.usuario.id;
             //    diabetes.PacienteID = Pacientes.ID;
             bool isSave= StaticResources.dataBase.saveDiabetes(diabetes);
             Borrar();

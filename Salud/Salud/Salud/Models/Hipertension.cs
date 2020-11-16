@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Salud.Models
 {
-
-    [Table("Diabetes")]
-    public class Diabetes
+    [Table("Hipertension")]
+    public class Hipertension
     {
 
         [PrimaryKey, AutoIncrement, Column("ID")]
@@ -21,12 +20,17 @@ namespace Salud.Models
 
         [Column("Nota")]
         public string Nota { get; set; }
+        [Column("Color")]
+        public string Color { get; set; }
 
-        [Column("Glucosa")]
-        public string Glucosa { get; set; }
+        [Column("picSistolico")]
+        public string picSistolico { get; set; }
 
-        [Column("Peso")]
-        public string Peso { get; set; }
+        [Column("picDiastolico")]
+        public string picDiastolico { get; set; }
+
+        [Column("picPulso")]
+        public string picPulso { get; set; }
 
         [Column("PacienteID")]
         public int PacienteID { get; set; }

@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Salud.Utils;
 using Salud.Views;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Salud.ViewModels
         //Atributos de LoginPage
         private string _edtxUsuario;
         private string _edtxClave;
+        private string title;
 
         //Controller
 
@@ -30,13 +32,18 @@ namespace Salud.ViewModels
             get { return this._edtxClave; }
             set { this.SetValue(ref this._edtxClave, value); } // no solo asigna, también refresca la vista...
         }
+        public string Title
+        {
+            get { return this.title; }
+            set { this.SetValue(ref this.title, value); } // no solo asigna, también refresca la vista...
+        }
 
         #endregion
 
         #region  Constructors
         public MenuViewModel()
         {
-
+            this.Title = StaticResources.usuario.nombre;
         }
         #endregion
 

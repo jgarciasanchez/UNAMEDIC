@@ -8,5 +8,6 @@ namespace Salud.Utils
     public class StaticResources
     {
         public static DataBase dataBase = null;
+        public static Pacientes usuario = null;
     }
 }

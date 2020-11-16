@@ -10,8 +10,8 @@
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Login}" Padding="20,50,20,0" BackgroundColor="Azure">
             <Image Source="UNAMEDIC" />
-            <Entry Placeholder="Usuario" TextColor="Gray"/>
-            <Entry Placeholder="Contraseña" IsPassword="True" TextColor="Gray"/>
+            <Entry Text="{Binding edtxUsuario}" Placeholder="Usuario" TextColor="Gray"/>
+            <Entry Text="{Binding edtxClave}" Placeholder="Contraseña" IsPassword="True" TextColor="Gray"/>
             <StackLayout Margin="0,20,0,0">
                 <Button VerticalOptions="Center" Text="Iniciar Sesión" Command="{Binding LoginCommand}"/>
                 <Button VerticalOptions="Center" BackgroundColor="Transparent" TextColor="Blue" Text="Registro" Command="{Binding SingInCommand}"/>
