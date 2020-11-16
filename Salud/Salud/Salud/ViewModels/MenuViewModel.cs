@@ -94,6 +94,7 @@ namespace Salud.ViewModels
         }
         public async void OnDiabetes()
         {
+            MainViewModel.GetInstance().Diabetes = new DiabetesViewModel();
             await Shell.Current.GoToAsync(nameof(DiabetesTabbedPage));
         }
         public async void OnMenuItemConfiguraciones()

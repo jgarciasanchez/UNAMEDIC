@@ -12,6 +12,7 @@ namespace Salud.ViewModels
         public DiabetesViewModel AppShell { get; set; }
         public MenuViewModel Menu { get; set; }
         public HipertensionViewModel Hipertension{ get; set;}
+        public DiabetesViewModel Diabetes { get; set; }
 
        // public AppShell appShell { get; set; }
 

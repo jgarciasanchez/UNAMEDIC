@@ -4,20 +4,20 @@
              x:Class="Salud.Views.DiabetesPage"
              Title="Nuevo">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Azure">
+        <StackLayout BindingContext="{Binding Diabetes}" BackgroundColor="Azure">
             <Grid RowDefinitions="auto" ColumnSpacing="20" Margin="20">
                 <Label FontAttributes="Bold" FontSize="Default" Text="Fecha" />
                 <Label FontAttributes="Bold" FontSize="Default" Grid.Column="1" Text="Hora" />
-                <DatePicker Grid.Row="1" TextColor="Green" BackgroundColor="White"/>
-                <TimePicker Grid.Column="1" Grid.Row="1" TextColor="Green" BackgroundColor="White"/>
+                <DatePicker Date="{Binding Fecha}"  Grid.Row="1" TextColor="Green" BackgroundColor="White"/>
+                <TimePicker Time="{Binding Hora}" Grid.Column="1" Grid.Row="1" TextColor="Green" BackgroundColor="White"/>
             </Grid>
-            <Entry  BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Glucosa" Margin="20"/>
-            <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Peso" Margin="20"/>
-            <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Nota" Keyboard="Chat" VerticalOptions="Start" HeightRequest="200" VerticalTextAlignment="Start" Margin="20" PlaceholderColor="Gray" />
+            <Entry Text="{Binding Glucosa}" BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Glucosa" Margin="20"/>
+            <Entry Text="{Binding Peso}" BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Peso" Margin="20"/>
+            <Entry Text="{Binding Nota}" BackgroundColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Nota" Keyboard="Chat" VerticalOptions="Start" HeightRequest="200" VerticalTextAlignment="Start" Margin="20" PlaceholderColor="Gray" />
 
             <Grid ColumnSpacing="20" Margin="20">
-                <Button Text="Borrar" BackgroundColor="White" TextColor="Black"/>
-                <Button Text="Guardar" BackgroundColor="White" TextColor="Black" Grid.Column="1"/>
+                <Button Text="Borrar" Command="{Binding BorrarCommand}" BackgroundColor="White" TextColor="Black"/>
+                <Button Text="Guardar" Command="{Binding GuardarCommand}" BackgroundColor="White" TextColor="Black" Grid.Column="1"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

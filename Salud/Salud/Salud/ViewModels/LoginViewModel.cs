@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Salud.DataBases;
+using Salud.Utils;
 using Salud.Views;
 using System;
 using System.Collections.Generic;
@@ -53,7 +55,8 @@ namespace Salud.ViewModels
         #region  Constructors
         public LoginViewModel()
         {
-
+            StaticResources.dataBase = new DataBase();
+            StaticResources.dataBase.instanceDB();
         }
         #endregion
 

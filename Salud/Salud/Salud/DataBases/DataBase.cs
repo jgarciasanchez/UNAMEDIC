@@ -2,13 +2,13 @@
 using SQLite;
 using System.Collections.Generic;
 
-namespace Salud.DataBase
+namespace Salud.DataBases
 {
     public class DataBase
     {
+        #region Definición DB
         public string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
         public string database = "Salud";
-
         public bool instanceDB()
         {
             try
@@ -18,6 +18,7 @@ namespace Salud.DataBase
                     var temp = System.IO.Path.Combine(folder, database);
                     connection.CreateTable<Item>();
                     connection.CreateTable<Pacientes>();
+                    connection.CreateTable<Diabetes>();
                     return true;
                 }
             }
@@ -36,6 +37,8 @@ namespace Salud.DataBase
                     connection.CreateTable<Item>();
                     connection.DropTable<Pacientes>();
                     connection.CreateTable<Pacientes>();
+                    connection.DropTable<Diabetes>();
+                    connection.CreateTable<Diabetes>();
                     return true;
                 }
             }
@@ -44,6 +47,7 @@ namespace Salud.DataBase
                 return false;
             }
         }
+        #endregion
 
         #region Tabla Ejemplo Item
         public bool saveItem(Item item)
@@ -157,6 +161,83 @@ namespace Salud.DataBase
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
                 {
                     return connection.Query<Item>("SELECT * FROM Item Where ID=?", Id)[0];
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Tabla Diabetes
+        public bool saveDiabetes(Diabetes diabetes)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Insert(diabetes);
+                     return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+        public bool deleteDiabetes(Diabetes diabetes)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Delete(diabetes);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+        public bool updateDiabetes(Diabetes diabetes)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Update(diabetes);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+        public List<Diabetes> getDiabetes()
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Table<Diabetes>().ToList();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                //Log.Info("SQLiteEx", ex.Message);
+                return null;
+            }
+        }
+        public Diabetes getDiabetesByID(int Id)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Query<Diabetes>("SELECT * FROM Diabetes Where ID=?", Id)[0];
                 }
             }
             catch (SQLiteException ex)
