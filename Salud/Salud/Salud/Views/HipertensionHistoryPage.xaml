@@ -13,7 +13,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <Frame CornerRadius="10" Margin="3" >
+                            <Frame CornerRadius="10" Margin="10,10,10,0" BackgroundColor="{Binding Color}">
                                 <Grid Margin="-15" Padding="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -21,11 +21,12 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="50"/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding Glucosa}"/>
-                                    <Label Grid.Column="1" Text="{Binding Peso}"/>
-                                    <Label Grid.Column="2" Text="{Binding Nota}"/>
-                                    <Label Grid.Row="1"  Grid.Column="2" Text="{Binding Hora}"/>
-                                    <Label Grid.Row="1" Text="{Binding Fecha}"/>
+                                    <Label TextColor="Black" Text="{Binding picSistolico}"/>
+                                    <Label TextColor="Black"  Grid.Column="1" Text="{Binding picDiastolico}"/>
+                                    <Label TextColor="Black"  Grid.Column="2" Text="{Binding picPulso}"/>
+                                    <Label TextColor="Black"  Grid.Row="2" Text="{Binding Nota}"/>
+                                    <Label TextColor="Black"  Grid.Row="1"  Grid.Column="2" Text="{Binding Hora}"/>
+                                    <Label TextColor="Black"  Grid.Row="1" Text="{Binding Fecha}"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

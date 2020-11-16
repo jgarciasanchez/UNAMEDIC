@@ -25,9 +25,10 @@ namespace Salud.ViewModels
         private string nota;
         private Chart lineCharts;
         private Chart barCharts;
-
+        private Chart lineCharts3;
         List<ChartEntry> entryList;
-
+        List<ChartEntry> entryList2;
+        List<ChartEntry> entryList3;
         private ObservableCollection<Hipertension> _hipertension;
 
         //Controller
@@ -44,6 +45,11 @@ namespace Salud.ViewModels
         {
             get { return this.barCharts; }
             set { this.SetValue(ref this.barCharts, value); } // no solo asigna, también refresca la vista...
+        }
+        public Chart LineCharts3
+        {
+            get { return this.lineCharts3; }
+            set { this.SetValue(ref this.lineCharts3, value); } // no solo asigna, también refresca la vista...
         }
         public string picSistolico
         {
@@ -120,13 +126,62 @@ namespace Salud.ViewModels
             this.entryList = new List<ChartEntry>();
             if (this.HipertensionList.Count() < 1)
                 return;
+            ChartEntry e1 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 1].picSistolico))
+            {
+                Label = "A",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 1].picSistolico,
+                Color = SKColor.Parse("#00bcd4")
+            };
+            entryList.Add(e1);
+            if (this.HipertensionList.Count() < 2)
+                return;
+            ChartEntry e2 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 2].picSistolico))
+            {
+                Label = "B",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 2].picSistolico,
+                Color = SKColor.Parse("#F44336")
+            };
+            entryList.Add(e2);
+            if (this.HipertensionList.Count() < 3)
+                return;
+            ChartEntry e3 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 3].picSistolico))
+            {
+                Label = "C",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 3].picSistolico,
+                Color = SKColor.Parse("#43A047")
+            };
+            entryList.Add(e3);
+            if (this.HipertensionList.Count() < 4)
+                return;
+            ChartEntry e4 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 4].picSistolico))
+            {
+                Label = "D",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 4].picSistolico,
+                Color = SKColor.Parse("#F9A825")
+            };
+            entryList.Add(e4);
+            if (this.HipertensionList.Count() < 5)
+                return;
+            ChartEntry e5 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 5].picSistolico))
+            {
+                Label = "D",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 5].picSistolico,
+                Color = SKColor.Parse("#276090")
+            };
+            entryList.Add(e5);
+        }
+        public void LoadChartEntries2()
+        {
+            this.entryList2 = new List<ChartEntry>();
+            if (this.HipertensionList.Count() < 1)
+                return;
             ChartEntry e1 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 1].picDiastolico))
             {
                 Label = "A",
                 ValueLabel = this.HipertensionList[this.HipertensionList.Count - 1].picDiastolico,
                 Color = SKColor.Parse("#00bcd4")
             };
-            entryList.Add(e1);
+            entryList2.Add(e1);
             if (this.HipertensionList.Count() < 2)
                 return;
             ChartEntry e2 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 2].picDiastolico))
@@ -135,7 +190,7 @@ namespace Salud.ViewModels
                 ValueLabel = this.HipertensionList[this.HipertensionList.Count - 2].picDiastolico,
                 Color = SKColor.Parse("#F44336")
             };
-            entryList.Add(e2);
+            entryList2.Add(e2);
             if (this.HipertensionList.Count() < 3)
                 return;
             ChartEntry e3 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 3].picDiastolico))
@@ -144,7 +199,7 @@ namespace Salud.ViewModels
                 ValueLabel = this.HipertensionList[this.HipertensionList.Count - 3].picDiastolico,
                 Color = SKColor.Parse("#43A047")
             };
-            entryList.Add(e3);
+            entryList2.Add(e3);
             if (this.HipertensionList.Count() < 4)
                 return;
             ChartEntry e4 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 4].picDiastolico))
@@ -153,7 +208,7 @@ namespace Salud.ViewModels
                 ValueLabel = this.HipertensionList[this.HipertensionList.Count - 4].picDiastolico,
                 Color = SKColor.Parse("#F9A825")
             };
-            entryList.Add(e4);
+            entryList2.Add(e4);
             if (this.HipertensionList.Count() < 5)
                 return;
             ChartEntry e5 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 5].picDiastolico))
@@ -162,7 +217,56 @@ namespace Salud.ViewModels
                 ValueLabel = this.HipertensionList[this.HipertensionList.Count - 5].picDiastolico,
                 Color = SKColor.Parse("#276090")
             };
-            entryList.Add(e5);
+            entryList2.Add(e5);
+        }
+        public void LoadChartEntries3()
+        {
+            this.entryList3 = new List<ChartEntry>();
+            if (this.HipertensionList.Count() < 1)
+                return;
+            ChartEntry e1 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 1].picPulso))
+            {
+                Label = "A",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 1].picPulso,
+                Color = SKColor.Parse("#00bcd4")
+            };
+            entryList3.Add(e1);
+            if (this.HipertensionList.Count() < 2)
+                return;
+            ChartEntry e2 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 2].picPulso))
+            {
+                Label = "B",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 2].picPulso,
+                Color = SKColor.Parse("#F44336")
+            };
+            entryList3.Add(e2);
+            if (this.HipertensionList.Count() < 3)
+                return;
+            ChartEntry e3 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 3].picPulso))
+            {
+                Label = "C",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 3].picPulso,
+                Color = SKColor.Parse("#43A047")
+            };
+            entryList3.Add(e3);
+            if (this.HipertensionList.Count() < 4)
+                return;
+            ChartEntry e4 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 4].picPulso))
+            {
+                Label = "D",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 4].picPulso,
+                Color = SKColor.Parse("#F9A825")
+            };
+            entryList3.Add(e4);
+            if (this.HipertensionList.Count() < 5)
+                return;
+            ChartEntry e5 = new ChartEntry(int.Parse(this.HipertensionList[this.HipertensionList.Count - 5].picPulso))
+            {
+                Label = "D",
+                ValueLabel = this.HipertensionList[this.HipertensionList.Count - 5].picPulso,
+                Color = SKColor.Parse("#276090")
+            };
+            entryList3.Add(e5);
         }
         public async void LoadHipertension()
         {
@@ -186,7 +290,7 @@ namespace Salud.ViewModels
         {
             if (sis > 160 || dis > 100)
             {
-                return "Red";
+                return "#DD5050";
             }
             else if (sis >= 141 || dis >= 91)
             {
@@ -198,7 +302,7 @@ namespace Salud.ViewModels
             }
             else if (sis >= 91 || dis >= 61)
             {
-                return "Green";
+                return "LightGreen";
             }
             else 
             {
@@ -212,9 +316,9 @@ namespace Salud.ViewModels
             hipertension.Fecha = this.Fecha;
             hipertension.Hora = this.Hora.ToString();
             hipertension.Nota = this.Nota;
-            hipertension.picSistolico = this.picSistolico;
-            hipertension.picDiastolico = this.picDiastolico;
-            hipertension.picPulso = this.picPulso;
+            hipertension.picSistolico = (int.Parse(this.picSistolico)+20).ToString();
+            hipertension.picDiastolico = (int.Parse(this.picDiastolico) + 20).ToString();
+            hipertension.picPulso = (int.Parse(this.picPulso) + 20).ToString();
             hipertension.Color = calcular(int.Parse(this.picSistolico), int.Parse(this.picDiastolico));
             hipertension.PacienteID = StaticResources.usuario.id;
             //    diabetes.PacienteID = Pacientes.ID;
@@ -233,13 +337,19 @@ namespace Salud.ViewModels
             this.picPulso = "60";
             this.LoadHipertension();
             this.LoadChartEntries();
+            this.LoadChartEntries2();
+            this.LoadChartEntries3();
             this.LineCharts = new LineChart()
             {
                 Entries = entryList
             };
             this.BarCharts = new BarChart()
             {
-                Entries = entryList
+                Entries = entryList2
+            };
+            this.LineCharts3 = new LineChart()
+            {
+                Entries = entryList3
             };
         }
         #endregion

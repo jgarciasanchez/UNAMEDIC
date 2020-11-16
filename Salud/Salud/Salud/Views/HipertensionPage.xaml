@@ -11,12 +11,12 @@
             <StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                        <Label Text="Fecha"/>
-                        <DatePicker HorizontalOptions="FillAndExpand" TextColor="Gray" Date="{Binding Fecha}"></DatePicker>
+                        <Label Text="Fecha" HorizontalOptions="CenterAndExpand"/>
+                        <DatePicker HorizontalOptions="Center" TextColor="Gray" Date="{Binding Fecha}"></DatePicker>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                        <Label Text="Hora"/>
-                        <TimePicker HorizontalOptions="FillAndExpand"  TextColor="Gray" Time="{ Binding Hora }" Format="HH:mm"/>
+                        <Label Text="Hora" HorizontalOptions="CenterAndExpand"/>
+                        <TimePicker  HorizontalOptions="Center"  TextColor="Gray" Time="{ Binding Hora }" Format="HH:mm"/>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
@@ -602,11 +602,11 @@ bpm
                         </Picker>
                     </StackLayout>
                 </StackLayout>
-                <Label Text="{Binding Nota}" FontSize="Large" Margin="0,20,0,0"/>
-                <Entry Keyboard="Chat" VerticalTextAlignment="Start" VerticalOptions="Start" HeightRequest="200" BackgroundColor="#F5EBA9" TextColor="Gray"/>
+                <Label Text="Nota" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0"/>
+                <Entry Text="{Binding Nota}" Keyboard="Chat" VerticalTextAlignment="Start" VerticalOptions="Start" HeightRequest="200" BackgroundColor="LightYellow" TextColor="Gray"/>
                 <Grid ColumnSpacing="20" Margin="20">
-                    <Button Text="Borrar" Command="{Binding BorrarCommand}" BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
-                    <Button Text="Guardar" Command="{Binding GuardarCommand}" BackgroundColor="Green" TextColor="White" Grid.Column="1" CornerRadius="10"/>
+                    <Button Text="Borrar" Command="{Binding BorrarCommand}" BackgroundColor="#022E40" TextColor="White" CornerRadius="10"/>
+                    <Button Text="Guardar" Command="{Binding GuardarCommand}" BackgroundColor="#022E40" TextColor="White" Grid.Column="1" CornerRadius="10"/>
                 </Grid>
                 <Image Source="table"/>
             </StackLayout>
