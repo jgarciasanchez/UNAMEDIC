@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Salud.ViewModels
 {
@@ -10,23 +11,39 @@ namespace Salud.ViewModels
     {
         #region Attributes //Aquí van los propieades que serán modificadas en el controlador 
         //Atributos de LoginPage
-        private string _edtxUsuario;
-        private string _edtxClave;
+        private string _diastolica;
+        private string _sistolica;
+        private string _pulso;
+        private string _hora;
 
         //Controller
 
         #endregion
 
         #region Properties //Aquí van los elementos desde la vista bindeados
-        public string edtxUsuario
+        public string picSistolico
         {
-            get { return this._edtxUsuario; }
-            set { this.SetValue(ref this._edtxUsuario, value); } // no solo asigna, también refresca la vista...
+            get { return this._sistolica; }
+            set
+            {
+                calcular(int.Parse(value), int.Parse(this.picDiastolico));
+                this.SetValue(ref this._sistolica, value);
+            } // no solo asigna, también refresca la vista...
         }
-        public string edtxClave
+        public string picDiastolico
         {
-            get { return this._edtxClave; }
-            set { this.SetValue(ref this._edtxClave, value); } // no solo asigna, también refresca la vista...
+            get { return this._diastolica; }
+            set { this.SetValue(ref this._diastolica, value); } // no solo asigna, también refresca la vista...
+        }
+        public string picPulso
+        {
+            get { return this._pulso; }
+            set { this.SetValue(ref this._pulso, value); } // no solo asigna, también refresca la vista...
+        }
+        public string Hora
+        {
+            get { return this._hora; }
+            set { this.SetValue(ref this._hora, value); } // no solo asigna, también refresca la vista...
         }
 
         #endregion
@@ -34,7 +51,13 @@ namespace Salud.ViewModels
         #region  Constructors
         public HipertensionViewModel()
         {
+            picDiastolico = "60";
+            picSistolico = "100";
+            picPulso = "60";
 
+            var src = DateTime.Now;
+            
+            Hora = "05" + ":" + src.Minute;
         }
         #endregion
 
@@ -49,6 +72,25 @@ namespace Salud.ViewModels
         #endregion
 
         #region Methods
+        public void calcular(int sis, int dis)
+        {
+            if (sis < 90 || dis < 60)
+            {
+            }
+            else if (sis < 90 || dis < 60)
+            {
+            }
+            else if (sis < 90 || dis < 60)
+            {
+            }
+            else if (sis < 90 || dis < 60)
+            {
+            }
+            else if (sis < 90 || dis < 60)
+            {
+            }
+        }
+
         public async void OnMenuItemConfiguraciones()
         {
             //await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage()); //Para una pantalla modal
