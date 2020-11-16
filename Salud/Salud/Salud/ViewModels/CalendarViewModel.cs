@@ -9,8 +9,10 @@ namespace Salud.ViewModels
     public static class CalendarViewModel
     {
         public static CalendarEventCollection CalendarInlineEvents { get; set; } = new CalendarEventCollection();
+
         static CalendarViewModel()
         {
+
         }
 
         public static void AgregarDonacion(int ano, int day, int mes)

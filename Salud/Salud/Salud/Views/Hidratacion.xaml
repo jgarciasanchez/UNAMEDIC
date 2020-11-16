@@ -1,12 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="Salud.Views.Hidratacion">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="Azure">
+            <StackLayout BackgroundColor="White" Margin="20,20,20,30">
+                <Label Text="Ingesta de Agua ideal" FontSize="Large" TextColor="#606060"/>
+                <Label Text="2,28 Litros" FontSize="Medium" TextColor="Black"/>
+            </StackLayout>
+
+            <Image Source="gota1" Aspect="AspectFit"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <Label FontSize="Large" Text="Consumo Actual"/>
+                <Label FontSize="Large" Text="800ml"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                <Button Text="100ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="cup"/>
+                <Button Text="300ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="glass"/>
+                <Button Text="600ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="water"/>
+                <Button Text="800ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="bottle"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
