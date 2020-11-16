@@ -1,12 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Salud.Views.Page1">
+             xmlns:local="clr-namespace:Salud.ViewModels"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Class="Salud.Views.Sangre"
+             Title="Sangre"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{Binding Sangre}">
+            <Label Text="Tipo de Sangre"/>
+            <Picker TextColor="Gray">
+                <Picker.Items>
+                    <x:String>O Negativo</x:String>
+                    <x:String>O Positivo</x:String>
+                    <x:String>A Negativo</x:String>
+                    <x:String>A Positivo</x:String>
+                    <x:String>B Negativo</x:String>
+                    <x:String>B Positivo</x:String>
+                    <x:String>AB Negativo</x:String>
+                    <x:String>AB Positivo</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+
+            <syncfusion:SfCalendar  x:Name="calendar" ViewMode="MonthView" ShowInlineEvents="True" 
+                                   InlineViewMode="Inline" MaximumEventIndicatorCount="1" 
+                                    SelectedDate="{Binding Fecha}"
+                                   DataSource="{Binding Source={x:Static local:CalendarViewModel.CalendarInlineEvents}}">
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings>
+                        <syncfusion:MonthViewSettings.InlineItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="Red" Text="{Binding Subject}" TextColor="White" />
+                            </DataTemplate>
+                        </syncfusion:MonthViewSettings.InlineItemTemplate>
+                    </syncfusion:MonthViewSettings>
+                </syncfusion:SfCalendar.MonthViewSettings>
+            </syncfusion:SfCalendar>
+            <Button Text="Agregar Donación" Command="{Binding AgregarDonacion}"/>
+
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

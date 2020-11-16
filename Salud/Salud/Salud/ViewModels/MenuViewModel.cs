@@ -81,7 +81,8 @@ namespace Salud.ViewModels
         #region Methods
         public async void OnSangre()
         {
-            await Shell.Current.GoToAsync(nameof(DiabetesTabbedPage));
+            MainViewModel.GetInstance().Sangre = new SangreViewModel();
+            await Shell.Current.GoToAsync(nameof(Sangre));
         }
         public async void OnAgua()
         {

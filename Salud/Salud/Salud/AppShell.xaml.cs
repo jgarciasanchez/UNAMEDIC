@@ -13,6 +13,7 @@ namespace Salud
             InitializeComponent();
             Routing.RegisterRoute(nameof(HipertensionTabbedPage), typeof(HipertensionTabbedPage));
             Routing.RegisterRoute(nameof(DiabetesTabbedPage), typeof(DiabetesTabbedPage));
+            Routing.RegisterRoute(nameof(Sangre), typeof(Sangre));
 
         }
 

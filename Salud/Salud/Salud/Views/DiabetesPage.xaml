@@ -14,7 +14,6 @@
             <Entry Text="{Binding Glucosa}" TextColor="Black" Keyboard="Numeric" ClearButtonVisibility="WhileEditing" Placeholder="Glucosa" Margin="20"/>
             <Entry Text="{Binding Peso}" TextColor="Black" Keyboard="Numeric" ClearButtonVisibility="WhileEditing" Placeholder="Peso" Margin="20"/>
             <Entry Text="{Binding Nota}" TextColor="Black" ClearButtonVisibility="WhileEditing" Placeholder="Nota" Keyboard="Chat" VerticalOptions="Start" HeightRequest="200" VerticalTextAlignment="Start" Margin="20" PlaceholderColor="Gray" />
-c
             <Grid ColumnSpacing="20" Margin="20">
                 <Button Text="Borrar" Command="{Binding BorrarCommand}" BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
                 <Button Text="Guardar" Command="{Binding GuardarCommand}" BackgroundColor="Green" TextColor="White" Grid.Column="1" CornerRadius="10"/>

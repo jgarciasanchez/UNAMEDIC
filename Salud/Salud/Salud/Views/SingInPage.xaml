@@ -6,9 +6,9 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="Center">
-            <Image Source="UNAMEDIC"></Image>
-            <Entry PlaceholderColor="Gray" Placeholder="Nombre" Text="{ Binding txtNombre }"/>
+        <StackLayout BackgroundColor="Azure" BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="FillAndExpand">
+            <Image Source="UNAMEDIC_LOGO" Margin="20,50,20,0" WidthRequest="200"></Image>
+            <Entry PlaceholderColor="Gray" Placeholder="Nombre" Margin="0,20,0,0" Text="{ Binding txtNombre }"/>
             <Entry Placeholder="Apellidos"  Text="{ Binding txtNombre }"/>
             <Entry Placeholder="Usuario"  Text="{ Binding txtNombre }"/>
             <Entry Placeholder="Contraseña" IsPassword="True" Text="{ Binding txtNombre }"/>
@@ -35,9 +35,9 @@
                 <Label Text="Control de Hidratación"></Label>
                 <Switch IsToggled="{ Binding swtHidratacion }"></Switch>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                <Button VerticalOptions="Center" Text="Registrar" Command="{Binding SingInCommand}"/>
-                <Button VerticalOptions="Center" Text="Cancelar" Command="{Binding CancelCommand}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="End">
+                <Button Margin="0,20,0,0" Text="Cancelar" Command="{Binding CancelCommand}"/>
+                <Button Margin="0,20,0,0" Text="Registrar" Command="{Binding SingInCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

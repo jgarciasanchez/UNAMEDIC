@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salud.Android", "Salud.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salud.iOS", "Salud.iOS\Salud.iOS.csproj", "{BD4E8D3B-714C-4B89-8B65-0B954F1FB2B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salud", "Salud\Salud.csproj", "{A75F8DB4-A05F-43CD-824B-E6F46E4BBDD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salud", "Salud\Salud.csproj", "{A75F8DB4-A05F-43CD-824B-E6F46E4BBDD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

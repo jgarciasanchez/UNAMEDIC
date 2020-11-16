@@ -11,6 +11,7 @@ namespace Salud
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzUyMzUzQDMxMzgyZTMzMmUzMFV6bldhdXNpb0FXZEg2T2E2WkwveTQyQWV1dkI0bHBIOXUvZW9TRVNTNVk9");
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();

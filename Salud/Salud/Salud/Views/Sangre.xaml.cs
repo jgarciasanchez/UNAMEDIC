@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Salud.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class Sangre : ContentPage
     {
-        public Page1()
+        public Sangre()
         {
             InitializeComponent();
         }
