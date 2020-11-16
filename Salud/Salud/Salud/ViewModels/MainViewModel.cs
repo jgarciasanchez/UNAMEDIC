@@ -14,6 +14,7 @@ namespace Salud.ViewModels
         public HipertensionViewModel Hipertension{ get; set;}
         public DiabetesViewModel Diabetes { get; set; }
         public SangreViewModel Sangre { get; set; }
+        public HidratacionViewModel Hidratacion { get; set; }
 
         // public AppShell appShell { get; set; }
 

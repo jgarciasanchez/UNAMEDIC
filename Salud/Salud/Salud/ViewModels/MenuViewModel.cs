@@ -93,6 +93,7 @@ namespace Salud.ViewModels
         }
         public async void OnAgua()
         {
+            MainViewModel.GetInstance().Hidratacion = new HidratacionViewModel();
             await Shell.Current.GoToAsync(nameof(Hidratacion));
         }
         public async void OnHipertension()
