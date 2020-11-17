@@ -18,56 +18,24 @@
                     Spacing="5">
 
                     <Image Source="UNAMEDIC" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
                     <Grid Margin="10" Padding="0" VerticalOptions="EndAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="150" />
                             <RowDefinition Height="150" />
                         </Grid.RowDefinitions>
 
-                        <BoxView Grid.Row="0" Color="LightBlue" CornerRadius="10" Margin="5"/>
-                        <BoxView Grid.Row="0" Color="Azure" CornerRadius="10" Margin="8"/>
-                        <Label Grid.Row="0"
-                            Text="Diabetes"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="Azure"
-                            TextColor="Black"
-                            FontSize="Default"/>
-                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Command="{Binding OnDiabetesClicked}"/>
+                        <Button ImageSource="azucar" Text="Diabetes" Command="{Binding OnDiabetesClicked}" ContentLayout="Top,0" 
+                                BackgroundColor="Azure" BorderColor="LightBlue" TextColor="Black" BorderWidth="5" CornerRadius="15"/>
 
-                        <BoxView Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
-                        <BoxView Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
-                        <Label Grid.Column="1"
-                            Text="Hipertensión"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="Azure"
-                            TextColor="Black"
-                            FontSize="Default"/>
-                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Command="{Binding OnHipertensionClicked}"/>
+                        <Button Grid.Column="1" ImageSource="presion" Text="Presión Arterial" Command="{Binding OnHipertensionClicked}" ContentLayout="Top,0" 
+                                BackgroundColor="Azure" BorderColor="LightBlue" TextColor="Black" BorderWidth="5" CornerRadius="15"/>
 
-                        <BoxView Grid.Row="1" Color="LightBlue" CornerRadius="10"  Margin="5"/>
-                        <BoxView Grid.Row="1" Color="Azure" CornerRadius="10"  Margin="8"/>
-                        <Label Grid.Row="1"
-                            Text="Control de donación"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="Azure"
-                            TextColor="Black"
-                            FontSize="Default"/>
-                        <Button Grid.Row="1" Grid.Column="0" Opacity="0" Command="{Binding OnSangreClicked}"/>
+                        <Button Grid.Row="1" ImageSource="sangre" Text="Control de Donaciones" Command="{Binding OnSangreClicked}" ContentLayout="Top,0" 
+                                BackgroundColor="Azure" BorderColor="LightBlue" TextColor="Black" BorderWidth="5" CornerRadius="15"/>
 
-                        <BoxView Grid.Row="1" Grid.Column="1" Color="LightBlue" CornerRadius="10" Margin="5"/>
-                        <BoxView Grid.Row="1" Grid.Column="1" Color="Azure" CornerRadius="10" Margin="8"/>
-                        <Label Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Control de hidratación"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="Azure"
-                            TextColor="Black"
-                            FontSize="Default"/>
-                        <Button Grid.Row="1" Grid.Column="1" Opacity="0" Command="{Binding OnAguaClicked}"/>
+                        <Button Grid.Row="1" Grid.Column="1" ImageSource="hidratacion" Text="Control de Hidratación" Command="{Binding OnAguaClicked}" ContentLayout="Top,0" 
+                                BackgroundColor="Azure" BorderColor="LightBlue" TextColor="Black" BorderWidth="5" CornerRadius="15"/>
 
                     </Grid>
                 </StackLayout>

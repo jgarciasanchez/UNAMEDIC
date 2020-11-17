@@ -21,6 +21,8 @@ namespace Salud.DataBases
                     connection.CreateTable<Pacientes>();
                     connection.CreateTable<Diabetes>();
                     connection.CreateTable<Hipertension>();
+                    connection.CreateTable<Hidratacion>();
+                    connection.CreateTable<Sangre>();
                     return true;
                 }
             }
@@ -43,6 +45,10 @@ namespace Salud.DataBases
                     connection.CreateTable<Diabetes>();
                     connection.DropTable<Hipertension>();
                     connection.CreateTable<Hipertension>();
+                    connection.DropTable<Hidratacion>();
+                    connection.CreateTable<Hidratacion>();
+                    connection.DropTable<Sangre>();
+                    connection.CreateTable<Sangre>();
                     return true;
                 }
             }
@@ -260,6 +266,95 @@ namespace Salud.DataBases
             }
             catch (SQLiteException ex)
             {
+                return null;
+            }
+        }
+
+
+        #endregion
+
+        #region Hidratacion
+
+        public bool saveHidratacion(Hidratacion hidratacion)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Insert(hidratacion);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+
+        public List<Hidratacion> getHidratacion(int PacienteID)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Table<Hidratacion>().Where(d => d.PacienteID == PacienteID).ToList();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                //Log.Info("SQLiteEx", ex.Message);
+                return null;
+            }
+        }
+
+
+        public bool updateHidratacion(Hidratacion hidratacion)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Update(hidratacion);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region Sangre
+        public bool saveDonacion(Sangre sangre)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    connection.Insert(sangre);
+                    return true;
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                return false;
+            }
+        }
+
+        public List<Sangre> getDonaciones(int PacienteID)
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, database)))
+                {
+                    return connection.Table<Sangre>().Where(d => d.PacienteID == PacienteID).ToList();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                //Log.Info("SQLiteEx", ex.Message);
                 return null;
             }
         }

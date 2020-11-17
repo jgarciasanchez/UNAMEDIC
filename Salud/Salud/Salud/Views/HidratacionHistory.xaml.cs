@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Salud.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Hidratacion : ContentPage
+    public partial class HidratacionHistory : ContentPage
     {
-        public Hidratacion()
+        public HidratacionHistory()
         {
             InitializeComponent();
         }

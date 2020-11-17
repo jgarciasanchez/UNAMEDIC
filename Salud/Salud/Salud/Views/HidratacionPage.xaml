@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Salud.Views.HidratacionPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Azure" BindingContext="{Binding Hidratacion}">
+            <StackLayout BackgroundColor="White" Margin="20,20,20,30">
+                <Label Text="Ingesta de Agua ideal" FontSize="Large" TextColor="#606060"/>
+                <Label Text="{Binding ConsumoIdeal}" FontSize="Medium" TextColor="Black"/>
+            </StackLayout>
+
+            <Image Source="{Binding Gota}" Aspect="AspectFit"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <Label FontSize="Large" Text="Consumo Actual"/>
+                <Label FontSize="Large" Text="{ Binding ConsumoDiario }"/>
+                <Label FontSize="Large" Text="mL"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                <Button Command="{Binding Agregar100}" Text="100ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="cup"/>
+                <Button Command="{Binding Agregar300}" Text="300ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="glass"/>
+                <Button Command="{Binding Agregar600}" Text="600ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="water"/>
+                <Button Command="{Binding Agregar800}" Text="800ml" ContentLayout="Top,0" BackgroundColor="Azure" TextColor="Black" ImageSource="bottle"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

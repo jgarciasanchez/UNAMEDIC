@@ -43,7 +43,8 @@ namespace Salud.ViewModels
         #region  Constructors
         public MenuViewModel()
         {
-            this.Title = StaticResources.usuario.nombre;
+            this.Title = StaticResources.usuario.nombre + " " + StaticResources.usuario.apellidos;
+
         }
         #endregion
 
@@ -94,7 +95,7 @@ namespace Salud.ViewModels
         public async void OnAgua()
         {
             MainViewModel.GetInstance().Hidratacion = new HidratacionViewModel();
-            await Shell.Current.GoToAsync(nameof(Hidratacion));
+            await Shell.Current.GoToAsync(nameof(HidratacionTabbedPage));
         }
         public async void OnHipertension()
         {

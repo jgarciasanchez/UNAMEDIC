@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\HidratacionPage.xaml.cs">
+      <DependentUpon>HidratacionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Sangre.xaml.cs">
       <DependentUpon>Sangre.xaml</DependentUpon>
     </Compile>
@@ -33,7 +36,13 @@
     <EmbeddedResource Update="Views\DiabetesTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Hidratacion.xaml">
+    <EmbeddedResource Update="Views\HidratacionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HidratacionHistory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HidratacionTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HipertensionGraficosPage.xaml">
