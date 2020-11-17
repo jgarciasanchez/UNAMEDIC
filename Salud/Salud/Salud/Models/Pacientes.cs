@@ -31,10 +31,11 @@ public class Pacientes
     public string altura { get; set; }
 
     [Column("sexo")]
-    public string sexo { get; set; }
+    public int sexo { get; set; }
 
     [Column("fechaNacimiento")]
     public string fechaNacimiento { get; set; }
+
 
     //[Column("hidratacion")]
     //public bool hidratacion { get; set; }

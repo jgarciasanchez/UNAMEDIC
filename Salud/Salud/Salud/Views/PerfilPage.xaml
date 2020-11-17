@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Salud.Views.SingInPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Shell.NavBarIsVisible="False">
+             Title="Modificacion de Datos"
+             x:Class="Salud.Views.PerfilPage">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Azure" BindingContext="{Binding SingIn}" Padding="10,0,10,0" VerticalOptions="FillAndExpand">
-            <Image Source="UNAMEDIC_LOGO" Margin="20,50,20,0" WidthRequest="200"></Image>
+        <StackLayout BackgroundColor="Azure" BindingContext="{Binding Perfil}" Padding="10,0,10,0" VerticalOptions="FillAndExpand">
+            <Image Source="UNAMEDIC_LOGO" Margin="20,50,20,0" WidthRequest="150"></Image>
             <Entry PlaceholderColor="Gray" Placeholder="Nombre" Margin="0,20,0,0" Text="{ Binding txtNombre }"/>
             <Entry Placeholder="Apellidos"  Text="{ Binding txtApellidos }"/>
             <Entry Placeholder="Usuario"  Text="{ Binding txtUsuario }"/>

@@ -17,7 +17,23 @@
                     Padding="5"
                     Spacing="5">
 
-                    <Image Source="UNAMEDIC" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Image Source="UNAMEDIC_LOGO" WidthRequest="250" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Nombre:" FontSize="Medium"/>
+                        <Label Text="{ Binding Nombre }" FontSize="Medium"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Fecha Nacimiento:" FontSize="Medium"/>
+                        <Label Text="{ Binding FechaNacimiento }" FontSize="Medium"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Sexo:" FontSize="Medium"/>
+                        <Label Text="{ Binding Sexo }" FontSize="Medium"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="IMC:" FontSize="Medium"/>
+                        <Label Text="{ Binding IMC }" FontSize="Medium"/>
+                    </StackLayout>
 
                     <Grid Margin="10" Padding="0" VerticalOptions="EndAndExpand">
                         <Grid.RowDefinitions>

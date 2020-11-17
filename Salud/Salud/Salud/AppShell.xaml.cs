@@ -15,6 +15,7 @@ namespace Salud
             Routing.RegisterRoute(nameof(DiabetesTabbedPage), typeof(DiabetesTabbedPage));
             Routing.RegisterRoute(nameof(Sangre), typeof(Sangre));
             Routing.RegisterRoute(nameof(HidratacionTabbedPage), typeof(HidratacionTabbedPage));
+            Routing.RegisterRoute(nameof(PerfilPage), typeof(PerfilPage));
 
         }
 

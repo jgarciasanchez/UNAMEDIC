@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Salud.ViewModels
 {
-    public class SingInViewModel : BaseViewModel
+    public class PerfilViewModel : BaseViewModel
     {
         #region Attributes //Aquí van los propieades que serán modificadas en el controlador 
         //Atributos de LoginPage
@@ -20,12 +20,7 @@ namespace Salud.ViewModels
         private string _txtPeso;
         private string _txtAltura;
         private int _sexo;
-     //   private string _txtEdad;
         private string _dtpFechaNacimiento;
-        private bool _swtHipertension;
-        private bool _swtSangre;
-        private bool _swtDiabetes;
-        private bool _swtHidratacion;
 
         //Controller
 
@@ -77,39 +72,23 @@ namespace Salud.ViewModels
             get { return this._sexo; }
             set { this.SetValue(ref this._sexo, value); } // no solo asigna, también refresca la vista...
         }
-        //public string txtEdad
-        //{
-        //    get { return this._txtEdad; }
-        //    set { this.SetValue(ref this._txtEdad, value); } // no solo asigna, también refresca la vista...
-        //}
-        public bool swtHipertension
-        {
-            get { return this._swtHipertension; }
-            set { this.SetValue(ref this._swtHipertension, value); } // no solo asigna, también refresca la vista...
-        }
-        public bool swtSangre
-        {
-            get { return this._swtSangre; }
-            set { this.SetValue(ref this._swtSangre, value); } // no solo asigna, también refresca la vista...
-        }
-        public bool swtDiabetes
-        {
-            get { return this._swtDiabetes; }
-            set { this.SetValue(ref this._swtDiabetes, value); } // no solo asigna, también refresca la vista...
-        }
-        public bool swtHidratacion
-        {
-            get { return this._swtHidratacion; }
-            set { this.SetValue(ref this._swtHidratacion, value); } // no solo asigna, también refresca la vista...
-        }
 
 
         #endregion
 
         #region  Constructors
-        public SingInViewModel()
+        public PerfilViewModel()
         {
-            Sexo = 0;
+            Pacientes pac = StaticResources.usuario;
+            txtNombre = pac.nombre;
+            txtApellidos = pac.apellidos;
+            txtUsuario = pac.usuario;
+            txtClave = pac.clave;
+            txtEmail = pac.email;
+            txtPeso = pac.peso;
+            txtAltura = pac.altura;
+            Sexo = pac.sexo;
+            dtpFechaNacimiento = pac.fechaNacimiento;
         }
         #endregion
 
@@ -138,7 +117,7 @@ namespace Salud.ViewModels
         }
         public async void OnSingInClicked()
         {
-            Pacientes pac = new Pacientes();
+            Pacientes pac = StaticResources.usuario;
             pac.nombre = txtNombre;
             pac.apellidos = txtApellidos;
             pac.usuario = txtUsuario;
@@ -150,25 +129,30 @@ namespace Salud.ViewModels
             pac.fechaNacimiento = dtpFechaNacimiento;
 
             List<String> isAnyEmpty = new List<string>();
-            if (String.IsNullOrEmpty(txtAltura)|| String.IsNullOrEmpty(txtNombre) || String.IsNullOrEmpty(txtApellidos) || String.IsNullOrEmpty(txtUsuario)
+            if (String.IsNullOrEmpty(txtAltura) || String.IsNullOrEmpty(txtNombre) || String.IsNullOrEmpty(txtApellidos) || String.IsNullOrEmpty(txtUsuario)
                 || String.IsNullOrEmpty(txtClave) || String.IsNullOrEmpty(txtEmail) || String.IsNullOrEmpty(txtPeso) || String.IsNullOrEmpty(dtpFechaNacimiento))
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Debes llenar todos los campos", "Aceptar");
                 return;
             }
-            if(StaticResources.dataBase.getPacienteByUsuario(txtUsuario)!=null)
+            
+            if (StaticResources.dataBase.getPacienteByUsuario(txtUsuario) != null)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Nombre de usuario ocupado", "Aceptar");
+                if (StaticResources.dataBase.getPacienteByUsuario(txtUsuario).id != StaticResources.usuario.id)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Nombre de usuario ocupado", "Aceptar");
+                    return;
+                }
+            }
+            bool isSave = StaticResources.dataBase.updatePacientes(pac);
+
+            StaticResources.usuario = StaticResources.dataBase.getPacienteByUsuario(txtUsuario);
+
+            if (isSave)
+            {
+                await Application.Current.MainPage.DisplayAlert("Info", "Informacion Actualizada", "Aceptar");
                 return;
             }
-            bool isSave = StaticResources.dataBase.savePacientes(pac);
-
-            StaticResources.usuario = StaticResources.dataBase.getPacienteByUsuarioClave(txtUsuario, txtClave);
-
-            MainViewModel.GetInstance().Menu = new MenuViewModel();
-            Application.Current.MainPage = new AppShell();
-
-            // Application.Current.MainPage = MainViewModel.GetInstance().appShell;
         }
         #endregion
     }

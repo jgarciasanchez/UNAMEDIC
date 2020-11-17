@@ -55,7 +55,7 @@ namespace Salud.ViewModels
             decimal peso = Convert.ToDecimal(StaticResources.usuario.peso);
             decimal canti = peso / 7;
             consumoIdeal = Convert.ToInt32(canti * 250);
-
+            Gota = "gota";
             loadHidratacion();
         }
         #endregion
