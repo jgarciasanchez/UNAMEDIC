@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tabs="clr-namespace:Salud.Views"
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
-             x:Class="Salud.Views.HidratacionTabbedPage">
+             x:Class="Salud.Views.HidratacionTabbedPage"
+             Title="Control de hidratación">
   <!--Pages can be added as references or inline-->
     <TabbedPage.Children>
         <tabs:HidratacionPage/>

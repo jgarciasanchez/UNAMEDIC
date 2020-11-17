@@ -3,7 +3,9 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              xmlns:local="clr-namespace:Salud.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Salud.Views.HidratacionHistory">
+             x:Class="Salud.Views.HidratacionHistory"
+             
+             Title="Historial">
     <ContentPage.Content>
         <StackLayout>
             <syncfusion:SfCalendar  x:Name="calendar" ViewMode="MonthView" ShowInlineEvents="True" 

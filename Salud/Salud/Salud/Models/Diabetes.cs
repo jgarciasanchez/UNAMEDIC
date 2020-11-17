@@ -30,5 +30,8 @@ namespace Salud.Models
 
         [Column("PacienteID")]
         public int PacienteID { get; set; }
+
+        [Column("Color")]
+        public string Color { get; set; }
     }
 }

@@ -13,20 +13,32 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <Frame CornerRadius="10" Margin="10,10,10,0" BackgroundColor="{Binding Color}">
+                            <Frame CornerRadius="10" Margin="10,10,10,1" >
                                 <Grid Margin="-15" Padding="0">
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label TextColor="Black" Text="{Binding picSistolico}"/>
-                                    <Label TextColor="Black"  Grid.Column="1" Text="{Binding picDiastolico}"/>
-                                    <Label TextColor="Black"  Grid.Column="2" Text="{Binding picPulso}"/>
-                                    <Label TextColor="Black"  Grid.Row="2" Text="{Binding Nota}"/>
-                                    <Label TextColor="Black"  Grid.Row="1"  Grid.Column="2" Text="{Binding Hora}"/>
-                                    <Label TextColor="Black"  Grid.Row="1" Text="{Binding Fecha}"/>
+                                    <Grid Padding="0" Grid.RowSpan="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <BoxView BackgroundColor="{Binding Color}" Grid.RowSpan="2" Grid.ColumnSpan="2" CornerRadius="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></BoxView>
+                                        <BoxView Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="Black" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="20" HeightRequest="1"></BoxView>
+                                        <Label TextColor="Black" HorizontalOptions="Center" Grid.ColumnSpan="2" Margin="0" VerticalOptions="End" Text="{Binding picSistolico}"/>
+                                        <Label TextColor="Black" HorizontalOptions="Center" Grid.ColumnSpan="2" Margin="-3" Grid.Row="1" Text="{Binding picDiastolico}"/>
+                                    </Grid>
+                                    <Label TextColor="Black" Grid.Column="1" FontAttributes="Bold" Text="{Binding Nota}"/>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" Spacing="0">
+                                        <Label TextColor="Black" Text="Pulso: " HorizontalOptions="Start"/>
+                                        <Label TextColor="Black" Text="{Binding picPulso}" HorizontalOptions="Start"/>
+                                        <Label TextColor="Black" HorizontalOptions="EndAndExpand" Text="{Binding Fecha}"/>
+                                        <Label TextColor="Black" HorizontalOptions="End" Text=" - "/>
+                                        <Label TextColor="Black" HorizontalOptions="End" Text="{Binding Hora}"/>
+                                    </StackLayout>
                                 </Grid>
                             </Frame>
                         </ViewCell>

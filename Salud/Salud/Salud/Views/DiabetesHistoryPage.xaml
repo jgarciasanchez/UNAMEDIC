@@ -13,25 +13,30 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <!--<ViewCell.ContextActions>
-                                <MenuItem Text="Ver facturas" Command="{Binding evtViewInvoice}" CommandParameter="{x:Reference invoiceCustomerPage}"/>
-                            </ViewCell.ContextActions>-->
-                            <Frame CornerRadius="10" Margin="3" >
+                            <Frame CornerRadius="10" Margin="10,10,10,1" >
                                 <Grid Margin="-15" Padding="0">
-                                    <!--<Grid.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding evtViewInvoice}" CommandParameter="{x:Reference invoiceCustomerPage}"/>
-                                    </Grid.GestureRecognizers>-->
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding Glucosa}"/>
-                                    <Label Grid.Column="1" Text="{Binding Peso}"/>
-                                    <Label Grid.Column="2" Text="{Binding Nota}"/>
-                                    <Label Grid.Row="1"  Grid.Column="2" Text="{Binding Hora}"/>
-                                    <Label Grid.Row="1" Text="{Binding Fecha}"/>
+                                    <Grid Padding="0" Grid.RowSpan="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <BoxView BackgroundColor="{Binding Color}" Grid.RowSpan="2" Grid.ColumnSpan="2" CornerRadius="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></BoxView>
+                                        <Label TextColor="White" HorizontalOptions="Center" Grid.ColumnSpan="2" Margin="0" Grid.RowSpan="2" VerticalOptions="Center" Text="{Binding Glucosa}"/>
+                                    </Grid>
+                                    <Label TextColor="Black" Grid.Column="1" FontAttributes="Bold" Text="{Binding Nota}"/>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" Spacing="0">
+                                        <Label TextColor="Black" Text="Peso: " HorizontalOptions="Start"/>
+                                        <Label TextColor="Black" Text="{Binding Peso}" HorizontalOptions="Start"/>
+                                        <Label TextColor="Black" HorizontalOptions="EndAndExpand" Text="{Binding Fecha}"/>
+                                        <Label TextColor="Black" HorizontalOptions="End" Text=" - "/>
+                                        <Label TextColor="Black" HorizontalOptions="End" Text="{Binding Hora}"/>
+                                    </StackLayout>
                                 </Grid>
                             </Frame>
                         </ViewCell>

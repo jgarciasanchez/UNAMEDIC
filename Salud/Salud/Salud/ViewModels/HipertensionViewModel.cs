@@ -302,7 +302,7 @@ namespace Salud.ViewModels
             }
             else if (sis >= 91 || dis >= 61)
             {
-                return "LightGreen";
+                return "Green";
             }
             else 
             {
@@ -335,6 +335,7 @@ namespace Salud.ViewModels
             this.picDiastolico = "60";
             this.picSistolico = "100";
             this.picPulso = "60";
+            this.Nota = "";
             this.LoadHipertension();
             this.LoadChartEntries();
             this.LoadChartEntries2();

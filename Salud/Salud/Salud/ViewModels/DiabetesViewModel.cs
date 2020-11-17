@@ -170,7 +170,33 @@ namespace Salud.ViewModels
         {
             this.diabetes = new ObservableCollection<Diabetes>(DiabetesList.OrderByDescending(c => c.ID));
         }
-
+        public string calcular(int sis)
+        {
+            if (sis > 200 )
+            {
+                return "#DD5050";
+            }
+            else if (sis >= 190 )
+            {
+                return "Orange";
+            }
+            else if (sis >= 160)
+            {
+                return "Yellow";
+            }
+            else if (sis >= 120)
+            {
+                return "LightGreen";
+            }
+            else if (sis >= 80)
+            {
+                return "Green";
+            }
+            else
+            {
+                return "LightBlue";
+            }
+        }
         private async void Guardar()
         {
             if (String.IsNullOrEmpty(this.Peso) || String.IsNullOrEmpty(this.Glucosa))
@@ -184,6 +210,13 @@ namespace Salud.ViewModels
             diabetes.Hora = this.Hora.ToString();
             diabetes.Peso = this.Peso;
             diabetes.Nota = this.Nota;
+            try { 
+                diabetes.Color = this.calcular(int.Parse(this.Glucosa));
+            }
+            catch
+            {
+
+            }
             diabetes.PacienteID = StaticResources.usuario.id;
             //    diabetes.PacienteID = Pacientes.ID;
             bool isSave= StaticResources.dataBase.saveDiabetes(diabetes);
