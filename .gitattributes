@@ -1,0 +1,15 @@
+# Normalize line endings to LF in the repository, regardless of the
+# committer's OS/editor settings, so `git diff` only shows real changes.
+* text=auto eol=lf
+
+# Binary assets must never go through line-ending conversion.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.icns binary
+*.ttf binary
+*.otf binary
+*.pfx binary
+*.snk binary
