@@ -1,4 +1,4 @@
-# Salud
+# UNAMEDIC
 
 A personal health-tracking mobile app built with **Xamarin.Forms**, developed as a **university project**. It lets a patient register and keep a history of several health conditions in one place.
 
